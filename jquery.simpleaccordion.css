@@ -1,0 +1,19 @@
+/* Simple Accordion Styles
+------------------------------------------- */
+/* line 10, ./jquery.simpleaccordion.css.scss */
+.sa-active dt {
+  cursor: pointer;
+}
+/* line 14, ./jquery.simpleaccordion.css.scss */
+.sa-active dd {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height 0.6s linear;
+  -moz-transition: max-height 0.6s linear;
+  -o-transition: max-height 0.6s linear;
+  transition: max-height 0.6s linear;
+}
+/* line 20, ./jquery.simpleaccordion.css.scss */
+.sa-active .sa-open + dd {
+  max-height: 300px;
+}
