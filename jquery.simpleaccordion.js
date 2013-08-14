@@ -14,11 +14,19 @@
  /*
   * TODO:
   * # mess with history/location state?
-  * # decide if we're using jquery animation instead of CSS max-height
 */
+
+jQuery.extend( jQuery.easing, {
+  saEase: function (x, t, b, c, d) {
+    // easeOutExpo - https://github.com/gdsmith/jquery.easing
+    return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
+
+  }
+});
 
 (function($) {
   'use strict';
+
   $.fn.simpleaccordion = function(o){
     //o = $.extend({}, $.fn.simpleaccordion.defaults, o);
 
@@ -38,15 +46,17 @@
 
       // STEP 2: close other items
       $el.addClass('sa-active');
+      $openheader.siblings('dt').next().slideUp(1);
 
       // STEP 3: watch click events for swapping
       $headers.on('click',function(e) {
-        var $this = $(this);
+        var $this = $(this),
+            $last = $(this).siblings('.sa-open');
 
         e.preventDefault();
 
-        $this.siblings('dt').removeClass('sa-open');
-        $this.addClass('sa-open');
+        $last.removeClass('sa-open').next().slideUp({ duration: 800, easing: 'saEase' });
+        $this.addClass('sa-open').next().slideDown({ duration: 800, easing: 'saEase' });
       });
 
       // STEP 4: History State?

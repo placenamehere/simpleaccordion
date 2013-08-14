@@ -1,25 +1,20 @@
-
-// requires compass for css3 transitions
-@import "compass";
-
-
 /* Simple Accordion Styles
 ------------------------------------------- */
 
 .sa-active {
-  dt {
+  >dt {
     cursor: pointer;
   }
 
-  dd {
-    max-height: 0;
+  >dd {
+    margin-bottom: 0;
     overflow: hidden;
-    @include transition(max-height 0.6s linear);
+  }
+
+  .sa-open {
+    cursor: default;
   }
 
   .sa-open+dd {
-    // note: some time in transition is taken up animating
-    // from max-height to the actual content height
-    max-height: 300px;
   }
 }
