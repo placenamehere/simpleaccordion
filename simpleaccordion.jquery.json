@@ -1,0 +1,27 @@
+{
+	"name": "simpleaccordion",
+	"title": "jQuery Simple Accordion",
+	"description": "A basic accordion widget",
+	"keywords": [
+		"jquery",
+		"accordion",
+		"plugins"
+	],
+	"version": "0.5",
+	"author": {
+		"name": "Chris Casciano",
+		"email": "chris@placenamehere.com",
+		"url": "https://github.com/placenamehere"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://zenorocha.mit-license.org/"
+		}
+	],
+	"bugs": "https://github.com/placenamehere/simpleaccordion/issues",
+	"homepage": "https://github.com/placenamehere/simpleaccordion",
+	"dependencies": {
+		"jquery": ">=1.4"
+	}
+}

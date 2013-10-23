@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>jQuery Simple Accordion</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script src="../dist/jquery.simpleaccordion.js"></script>
+    <link rel="stylesheet" href="../dist/jquery.simpleaccordion.css">
+	</head>
+	<body>
+    <h1>jquery.simpleaccordion.js demo</h1>
+
+    <dl>
+      <dt>first block</dt>
+      <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
+      <dt class="sa-open">second block</dt>
+      <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
+      <dt>third block</dt>
+      <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
+    </dl>
+
+		<script>
+			$(function() {
+				$("dl").simpleaccordion();
+			});
+		</script>
+	</body>
+</html>
