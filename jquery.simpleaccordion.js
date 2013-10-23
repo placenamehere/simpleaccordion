@@ -37,6 +37,11 @@ jQuery.extend( jQuery.easing, {
           $openheader;
 
 
+      // STEP 0: save initial drawn height of each accordion content
+      $el.children('dd').map(function() {
+        $(this).data('sa-original-height',$(this).height());
+      });
+
       // STEP 1: determine open item (default to first)
       $openheader = $headers.filter('.sa-open');
       if (!$openheader.length) {
