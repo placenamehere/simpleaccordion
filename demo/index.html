@@ -35,7 +35,11 @@
 
 		<script>
 			$(function() {
-				$("dl").simpleaccordion();
+				$("dl").simpleaccordion({
+          callback: function() {
+            $(this).css('color','blue');
+          }
+        });
 			});
 		</script>
 	</body>
