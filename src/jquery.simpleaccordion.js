@@ -4,6 +4,8 @@
 		var pluginName = "simpleaccordion",
 				defaults = {
           prefix: "sa",
+          iconOpen: "icon-when-open",
+          iconClosed: "icon-when-closed",
           triggerEvent: "click",
           easing: "swing",
           duration: 800,
@@ -25,19 +27,24 @@
             var _this = this,
                 $el = $(_this.element),
                 $headers = $el.children("dt"),
+                // $iconspans = $headers.children("span"),
                 $openheader,
                 activeClassName = _this.options.prefix + "-active",
                 openClassName = _this.options.prefix + "-open";
+                openIconClassName = _this.options.iconOpen;
+                closedIconClassName = _this.options.iconClosed;
 
             // STEP 1: determine open item (default to first)
             $openheader = $headers.filter("."+openClassName);
             if (!$openheader.length) {
               $openheader = $headers.eq(0);
               $openheader.addClass(openClassName);
+              $openheader.children("span").addClass(openIconClassName);
             }
 
             // STEP 2: close other items
             $openheader.siblings("dt").next().slideUp(1);
+            $openheader.siblings("dt").children('span').removeClass(openIconClassName).addClass(closedIconClassName);
 
             // widget now considered activated
             $el.addClass(activeClassName);
@@ -54,6 +61,7 @@
                   duration: _this.options.duration,
                   easing: _this.options.easing
                 });
+                $last.children('span').removeClass(openIconClassName).addClass(closedIconClassName);
                 $which.addClass(openClassName).next().slideDown({
                   duration: _this.options.duration,
                   easing: _this.options.easing,
@@ -63,6 +71,7 @@
                     }
                   }
                 });
+                $which.children('span').removeClass(closedIconClassName).addClass(openIconClassName);
               }
             });
 
