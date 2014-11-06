@@ -27,7 +27,6 @@
             var _this = this,
                 $el = $(_this.element),
                 $headers = $el.children("dt"),
-                // $iconspans = $headers.children("span"),
                 $openheader,
                 activeClassName = _this.options.prefix + "-active",
                 openClassName = _this.options.prefix + "-open";
