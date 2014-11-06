@@ -39,7 +39,7 @@
               $openheader = $headers.eq(0);
               $openheader.addClass(openClassName);
             }
-            $openheader.children("span").addClass(openIconClassName);
+            $openheader.children("span").removeClass(closedIconClassName).addClass(openIconClassName);
 
             // STEP 2: close other items
             $openheader.siblings("dt").next().slideUp(1);
