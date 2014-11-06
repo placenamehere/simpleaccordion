@@ -4,8 +4,8 @@
 		var pluginName = "simpleaccordion",
 				defaults = {
           prefix: "sa",
-          iconOpen: "icon-when-open",
-          iconClosed: "icon-when-closed",
+          iconOpenClass: "icon-when-open",
+          iconClosedClass: "icon-when-closed",
           triggerEvent: "click",
           easing: "swing",
           duration: 800,
@@ -31,16 +31,16 @@
                 $openheader,
                 activeClassName = _this.options.prefix + "-active",
                 openClassName = _this.options.prefix + "-open";
-                openIconClassName = _this.options.iconOpen;
-                closedIconClassName = _this.options.iconClosed;
+                openIconClassName = _this.options.iconOpenClass;
+                closedIconClassName = _this.options.iconClosedClass;
 
             // STEP 1: determine open item (default to first)
             $openheader = $headers.filter("."+openClassName);
             if (!$openheader.length) {
               $openheader = $headers.eq(0);
               $openheader.addClass(openClassName);
-              $openheader.children("span").addClass(openIconClassName);
             }
+            $openheader.children("span").addClass(openIconClassName);
 
             // STEP 2: close other items
             $openheader.siblings("dt").next().slideUp(1);
