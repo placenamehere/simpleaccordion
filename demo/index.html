@@ -3,28 +3,28 @@
 	<head>
 		<title>jQuery Simple Accordion</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-		<script src="../dist/jquery.simpleaccordion.js"></script>
+		<script src="../src/jquery.simpleaccordion.js"></script>
     <link rel="stylesheet" href="../dist/jquery.simpleaccordion.css">
 	</head>
 	<body>
     <h1>jquery.simpleaccordion.js demo</h1>
 
     <dl>
-      <dt>first block<span></span></dt>
+      <dt>first block</dt>
       <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
-      <dt class="sa-open">second block<span></span></dt>
+      <dt class="sa-open">second block</dt>
       <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</dd>
-      <dt>third block<span></span></dt>
+      <dt>third block</dt>
       <dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -36,13 +36,31 @@
 		<script>
 			$(function() {
 				$("dl").simpleaccordion({
-          openIconClassName: "icon_upCaret-ia",
-          closedIconClassName: "icon_downCaret-ia",
+          oninit: function() {
+            // add the spans where we want them, with the proper starting classes
+            var $headers = $(this).children("dt");
+            $headers.each(function() {
+              var $span = $("<span></span>");
+              if ($(this).hasClass("sa-open")) {
+                $span.addClass("icon_upCaret-ia");
+              } else {
+                $span.addClass("icon_downCaret-ia");
+              }
+              $(this).append($span);
+            });
+          },
           callback: function() {
-            $(this).css('color','blue');
+            $(this).css("color","blue");
+            // loop through spans and set the span classes to their new value, depending on state of dt
+            if ($(this).hasClass("sa-open")) {
+              $(this).children("span").removeClass("icon_downCaret-ia").addClass("icon_upCaret-ia");
+              $(this).siblings("dt").children("span").removeClass("icon_upCaret-ia").addClass("icon_downCaret-ia");
+            } else {
+              $(this).children("span").removeClass("icon_upCaret-ia").addClass("icon_downCaret-ia");
+            }
           }
         });
-			});
+		  });
 		</script>
 	</body>
 </html>

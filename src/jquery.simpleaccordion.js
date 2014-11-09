@@ -4,11 +4,10 @@
 		var pluginName = "simpleaccordion",
 				defaults = {
           prefix: "sa",
-          openIconClassName: "icon-when-open",
-          closedIconClassName: "icon-when-closed",
           triggerEvent: "click",
           easing: "swing",
           duration: 800,
+          oninit: null,
           callback: null
         };
 
@@ -30,8 +29,6 @@
                 $openheader,
                 activeClassName = _this.options.prefix + "-active",
                 openClassName = _this.options.prefix + "-open";
-                openIconClassName = _this.options.openIconClassName;
-                closedIconClassName = _this.options.closedIconClassName;
 
             // STEP 1: determine open item (default to first)
             $openheader = $headers.filter("."+openClassName);
@@ -39,11 +36,9 @@
               $openheader = $headers.eq(0);
               $openheader.addClass(openClassName);
             }
-            $openheader.children("span").removeClass(closedIconClassName).addClass(openIconClassName);
 
             // STEP 2: close other items
             $openheader.siblings("dt").next().slideUp(1);
-            $openheader.siblings("dt").children('span').removeClass(openIconClassName).addClass(closedIconClassName);
 
             // widget now considered activated
             $el.addClass(activeClassName);
@@ -60,7 +55,7 @@
                   duration: _this.options.duration,
                   easing: _this.options.easing
                 });
-                $last.children('span').removeClass(openIconClassName).addClass(closedIconClassName);
+                
                 $which.addClass(openClassName).next().slideDown({
                   duration: _this.options.duration,
                   easing: _this.options.easing,
@@ -68,13 +63,18 @@
                     if (typeof _this.options.callback === "function") {
                       _this.options.callback.call($(this).prev("dt"));
                     }
+                    if (typeof _this.options.callback === "function") {
+                      _this.options.callback.call($(this).prev("dt"));
+                    }
                   }
                 });
-                $which.children('span').removeClass(closedIconClassName).addClass(openIconClassName);
               }
             });
 
-            // STEP 4: History State?
+            // STEP 4: Run any passed in functions on the element at initialization
+            if (typeof _this.options.oninit === "function") {
+              _this.options.oninit.call($el);
+            }
 				}
 		};
 
