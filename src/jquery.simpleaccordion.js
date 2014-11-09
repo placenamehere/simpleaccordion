@@ -7,7 +7,7 @@
           triggerEvent: "click",
           easing: "swing",
           duration: 800,
-          oninit: null,
+          onInit: null,
           callback: null
         };
 
@@ -63,17 +63,14 @@
                     if (typeof _this.options.callback === "function") {
                       _this.options.callback.call($(this).prev("dt"));
                     }
-                    if (typeof _this.options.callback === "function") {
-                      _this.options.callback.call($(this).prev("dt"));
-                    }
                   }
                 });
               }
             });
 
             // STEP 4: Run any passed in functions on the element at initialization
-            if (typeof _this.options.oninit === "function") {
-              _this.options.oninit.call($el);
+            if (typeof _this.options.onInit === "function") {
+              _this.options.onInit.call($el);
             }
 				}
 		};
