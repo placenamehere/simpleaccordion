@@ -36,11 +36,31 @@
 		<script>
 			$(function() {
 				$("dl").simpleaccordion({
+          onInit: function() {
+            // add the spans where we want them, with the proper starting classes
+            var $headers = $(this).children("dt");
+            $headers.each(function() {
+              var $span = $("<span></span>");
+              if ($(this).hasClass("sa-open")) {
+                $span.addClass("icon_upCaret-ia");
+              } else {
+                $span.addClass("icon_downCaret-ia");
+              }
+              $(this).append($span);
+            });
+          },
           callback: function() {
-            $(this).css('color','blue');
+            $(this).css("color","blue");
+            // loop through spans and set the span classes to their new value, depending on state of dt
+            if ($(this).hasClass("sa-open")) {
+              $(this).children("span").removeClass("icon_downCaret-ia").addClass("icon_upCaret-ia");
+              $(this).siblings("dt").children("span").removeClass("icon_upCaret-ia").addClass("icon_downCaret-ia");
+            } else {
+              $(this).children("span").removeClass("icon_upCaret-ia").addClass("icon_downCaret-ia");
+            }
           }
         });
-			});
+		  });
 		</script>
 	</body>
 </html>
