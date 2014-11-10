@@ -4,7 +4,7 @@
 	"description": "A basic accordion widget.",
 	"author": "Chris Casciano",
 	"homepage": "https://github.com/placenamehere/simpleaccordion",
-	"version": "0.6.0",
+	"version": "0.7.0",
 	"devDependencies": {
 		"grunt": "~0.4.1",
 		"grunt-cli": "~0.1.7",

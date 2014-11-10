@@ -1,5 +1,5 @@
 /*
- *  jQuery Simple Accordion - v0.6
+ *  jQuery Simple Accordion - v0.7
  *  A basic accordion widget
  *  https://github.com/placenamehere/simpleaccordion
  *
