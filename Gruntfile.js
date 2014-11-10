@@ -39,6 +39,9 @@ module.exports = function(grunt) {
     // SASS definitions
     sass: {
       dist: {
+        options: {
+          sourcemap: "none"
+        },
         files: {
           "dist/jquery.simpleaccordion.css" : "src/jquery.simpleaccordion.css.scss"
         }

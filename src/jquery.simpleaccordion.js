@@ -55,7 +55,7 @@
                   duration: _this.options.duration,
                   easing: _this.options.easing
                 });
-                
+
                 $which.addClass(openClassName).next().slideDown({
                   duration: _this.options.duration,
                   easing: _this.options.easing,

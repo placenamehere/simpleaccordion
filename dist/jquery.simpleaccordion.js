@@ -15,6 +15,7 @@
           triggerEvent: "click",
           easing: "swing",
           duration: 800,
+          onInit: null,
           callback: null
         };
 
@@ -62,6 +63,7 @@
                   duration: _this.options.duration,
                   easing: _this.options.easing
                 });
+
                 $which.addClass(openClassName).next().slideDown({
                   duration: _this.options.duration,
                   easing: _this.options.easing,
@@ -74,7 +76,10 @@
               }
             });
 
-            // STEP 4: History State?
+            // STEP 4: Run any passed in functions on the element at initialization
+            if (typeof _this.options.onInit === "function") {
+              _this.options.onInit.call($el);
+            }
 				}
 		};
 
